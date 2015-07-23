@@ -1,0 +1,48 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site1.master.cs" Inherits="Assignment2.Site1" %>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"/>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+       
+      <a class="navbar-brand" href="#">JBs Premium Health Tracker</a>
+    </div>
+    <div>
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="#">Home</a></li>
+        <asp:PlaceHolder ID="plhPublic" runat="server">
+                <li><a href="/register.aspx">Register</a></li>
+                <li><a href="/login.aspx">Log In</a></li>
+            </asp:PlaceHolder>
+            <asp:placeholder ID="plhPrivate" runat="server">
+                <li><a href="/admin/dashboard.aspx">Dashboard</a></li>
+                <li><a href="/admin/viewWorkout.aspx">Workout Log</a></li>
+                <li><a href="/admin/viewFoodLog.aspx">Food Log</a></li>
+                <li><a href="/admin/userAccount.aspx">My Account</a></li>
+                <li><a href="/logout.aspx">Log Out</a></li>
+            </asp:placeholder>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <form id="form1" runat="server">
+    <div>
+        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+        
+        </asp:ContentPlaceHolder>
+    </div>
+    </form>
+</body>
+</html>

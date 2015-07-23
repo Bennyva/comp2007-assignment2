@@ -1,0 +1,289 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="HealthLogModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="foodLog">
+          <Key>
+            <PropertyRef Name="fLogID" />
+          </Key>
+          <Property Name="fLogID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="username" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="protein" Type="int" />
+          <Property Name="carbs" Type="int" />
+          <Property Name="fat" Type="int" />
+          <Property Name="calories" Type="int" />
+          <Property Name="foodDate" Type="date" />
+        </EntityType>
+        <EntityType Name="setsLog">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="setID" Type="int" Nullable="false" />
+          <Property Name="setReps" Type="int" />
+          <Property Name="setWeight" Type="int" />
+        </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="username" />
+          </Key>
+          <Property Name="username" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="fName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="lName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="phoneNum" Type="varchar" MaxLength="50" />
+          <Property Name="gender" Type="bit" Nullable="false" />
+          <Property Name="DOB" Type="date" Nullable="false" />
+        </EntityType>
+        <EntityType Name="workoutLog">
+          <Key>
+            <PropertyRef Name="workoutLogID" />
+          </Key>
+          <Property Name="workoutLogID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="username" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="muscleGroup" Type="varchar" MaxLength="50" />
+          <Property Name="excercise" Type="varchar" MaxLength="50" />
+          <Property Name="wSets" Type="int" />
+          <Property Name="wDate" Type="date" />
+        </EntityType>
+        <Association Name="FK__foodLog__usernam__38996AB5">
+          <End Role="Users" Type="Self.Users" Multiplicity="1" />
+          <End Role="foodLog" Type="Self.foodLog" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="username" />
+            </Principal>
+            <Dependent Role="foodLog">
+              <PropertyRef Name="username" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__setsLog__setID__3E52440B">
+          <End Role="workoutLog" Type="Self.workoutLog" Multiplicity="1" />
+          <End Role="setsLog" Type="Self.setsLog" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="workoutLog">
+              <PropertyRef Name="workoutLogID" />
+            </Principal>
+            <Dependent Role="setsLog">
+              <PropertyRef Name="setID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__workoutLo__usern__3B75D760">
+          <End Role="Users" Type="Self.Users" Multiplicity="1" />
+          <End Role="workoutLog" Type="Self.workoutLog" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="username" />
+            </Principal>
+            <Dependent Role="workoutLog">
+              <PropertyRef Name="username" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="HealthLogModelStoreContainer">
+          <EntitySet Name="foodLog" EntityType="Self.foodLog" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="setsLog" EntityType="Self.setsLog" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="workoutLog" EntityType="Self.workoutLog" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__foodLog__usernam__38996AB5" Association="Self.FK__foodLog__usernam__38996AB5">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="foodLog" EntitySet="foodLog" />
+          </AssociationSet>
+          <AssociationSet Name="FK__setsLog__setID__3E52440B" Association="Self.FK__setsLog__setID__3E52440B">
+            <End Role="workoutLog" EntitySet="workoutLog" />
+            <End Role="setsLog" EntitySet="setsLog" />
+          </AssociationSet>
+          <AssociationSet Name="FK__workoutLo__usern__3B75D760" Association="Self.FK__workoutLo__usern__3B75D760">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="workoutLog" EntitySet="workoutLog" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="HealthLogModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="foodLog">
+          <Key>
+            <PropertyRef Name="fLogID" />
+          </Key>
+          <Property Name="fLogID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="username" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="protein" Type="Int32" />
+          <Property Name="carbs" Type="Int32" />
+          <Property Name="fat" Type="Int32" />
+          <Property Name="calories" Type="Int32" />
+          <Property Name="foodDate" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="User" Relationship="Self.FK__foodLog__usernam__38996AB5" FromRole="foodLog" ToRole="Users" />
+        </EntityType>
+        <EntityType Name="setsLog">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="setID" Type="Int32" Nullable="false" />
+          <Property Name="setReps" Type="Int32" />
+          <Property Name="setWeight" Type="Int32" />
+          <NavigationProperty Name="workoutLog" Relationship="Self.FK__setsLog__setID__3E52440B" FromRole="setsLog" ToRole="workoutLog" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="username" />
+          </Key>
+          <Property Name="username" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="fName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="lName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="phoneNum" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="gender" Type="Boolean" Nullable="false" />
+          <Property Name="DOB" Type="DateTime" Nullable="false" Precision="0" />
+          <NavigationProperty Name="foodLogs" Relationship="Self.FK__foodLog__usernam__38996AB5" FromRole="Users" ToRole="foodLog" />
+          <NavigationProperty Name="workoutLogs" Relationship="Self.FK__workoutLo__usern__3B75D760" FromRole="Users" ToRole="workoutLog" />
+        </EntityType>
+        <EntityType Name="workoutLog">
+          <Key>
+            <PropertyRef Name="workoutLogID" />
+          </Key>
+          <Property Name="workoutLogID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="username" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="muscleGroup" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="excercise" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="wSets" Type="Int32" />
+          <Property Name="wDate" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="setsLogs" Relationship="Self.FK__setsLog__setID__3E52440B" FromRole="workoutLog" ToRole="setsLog" />
+          <NavigationProperty Name="User" Relationship="Self.FK__workoutLo__usern__3B75D760" FromRole="workoutLog" ToRole="Users" />
+        </EntityType>
+        <Association Name="FK__foodLog__usernam__38996AB5">
+          <End Role="Users" Type="Self.User" Multiplicity="1" />
+          <End Role="foodLog" Type="Self.foodLog" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="username" />
+            </Principal>
+            <Dependent Role="foodLog">
+              <PropertyRef Name="username" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__setsLog__setID__3E52440B">
+          <End Role="workoutLog" Type="Self.workoutLog" Multiplicity="1" />
+          <End Role="setsLog" Type="Self.setsLog" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="workoutLog">
+              <PropertyRef Name="workoutLogID" />
+            </Principal>
+            <Dependent Role="setsLog">
+              <PropertyRef Name="setID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__workoutLo__usern__3B75D760">
+          <End Role="Users" Type="Self.User" Multiplicity="1" />
+          <End Role="workoutLog" Type="Self.workoutLog" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="username" />
+            </Principal>
+            <Dependent Role="workoutLog">
+              <PropertyRef Name="username" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="HealthLogEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="foodLogs" EntityType="Self.foodLog" />
+          <EntitySet Name="setsLogs" EntityType="Self.setsLog" />
+          <EntitySet Name="Users" EntityType="Self.User" />
+          <EntitySet Name="workoutLogs" EntityType="Self.workoutLog" />
+          <AssociationSet Name="FK__foodLog__usernam__38996AB5" Association="Self.FK__foodLog__usernam__38996AB5">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="foodLog" EntitySet="foodLogs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__setsLog__setID__3E52440B" Association="Self.FK__setsLog__setID__3E52440B">
+            <End Role="workoutLog" EntitySet="workoutLogs" />
+            <End Role="setsLog" EntitySet="setsLogs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__workoutLo__usern__3B75D760" Association="Self.FK__workoutLo__usern__3B75D760">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="workoutLog" EntitySet="workoutLogs" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="HealthLogModelStoreContainer" CdmEntityContainer="HealthLogEntities">
+          <EntitySetMapping Name="foodLogs">
+            <EntityTypeMapping TypeName="HealthLogModel.foodLog">
+              <MappingFragment StoreEntitySet="foodLog">
+                <ScalarProperty Name="fLogID" ColumnName="fLogID" />
+                <ScalarProperty Name="username" ColumnName="username" />
+                <ScalarProperty Name="protein" ColumnName="protein" />
+                <ScalarProperty Name="carbs" ColumnName="carbs" />
+                <ScalarProperty Name="fat" ColumnName="fat" />
+                <ScalarProperty Name="calories" ColumnName="calories" />
+                <ScalarProperty Name="foodDate" ColumnName="foodDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="setsLogs">
+            <EntityTypeMapping TypeName="HealthLogModel.setsLog">
+              <MappingFragment StoreEntitySet="setsLog">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="setID" ColumnName="setID" />
+                <ScalarProperty Name="setReps" ColumnName="setReps" />
+                <ScalarProperty Name="setWeight" ColumnName="setWeight" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="HealthLogModel.User">
+              <MappingFragment StoreEntitySet="Users">
+                <ScalarProperty Name="username" ColumnName="username" />
+                <ScalarProperty Name="fName" ColumnName="fName" />
+                <ScalarProperty Name="lName" ColumnName="lName" />
+                <ScalarProperty Name="phoneNum" ColumnName="phoneNum" />
+                <ScalarProperty Name="gender" ColumnName="gender" />
+                <ScalarProperty Name="DOB" ColumnName="DOB" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="workoutLogs">
+            <EntityTypeMapping TypeName="HealthLogModel.workoutLog">
+              <MappingFragment StoreEntitySet="workoutLog">
+                <ScalarProperty Name="workoutLogID" ColumnName="workoutLogID" />
+                <ScalarProperty Name="username" ColumnName="username" />
+                <ScalarProperty Name="muscleGroup" ColumnName="muscleGroup" />
+                <ScalarProperty Name="excercise" ColumnName="excercise" />
+                <ScalarProperty Name="wSets" ColumnName="wSets" />
+                <ScalarProperty Name="wDate" ColumnName="wDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
