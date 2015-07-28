@@ -1,4 +1,4 @@
-﻿// T4 code generation is enabled for model 'C:\Users\gcstudent\Downloads\comp2007-assignment2-master\comp2007-assignment2-master\Assignment2\Models\WorkoutModel.edmx'. 
+﻿// T4 code generation is enabled for model 'E:\Downloads\comp2007-assignment2-master\comp2007-assignment2-master\Assignment2\Models\WorkoutModel.edmx'. 
 // To enable legacy code generation, change the value of the 'Code Generation Strategy' designer
 // property to 'Legacy ObjectContext'. This property is available in the Properties Window when the model
 // is open in the designer.

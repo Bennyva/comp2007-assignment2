@@ -20,13 +20,13 @@ namespace Assignment2.Models
         }
     
         public int workoutLogID { get; set; }
-        public string username { get; set; }
         public string muscleGroup { get; set; }
         public string excercise { get; set; }
         public Nullable<int> wSets { get; set; }
         public Nullable<System.DateTime> wDate { get; set; }
+        public string userID { get; set; }
     
         public virtual ICollection<setsLog> setsLogs { get; set; }
-        public virtual User User { get; set; }
+        public virtual AspNetUser AspNetUser { get; set; }
     }
 }

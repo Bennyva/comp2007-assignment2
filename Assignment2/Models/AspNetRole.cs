@@ -12,16 +12,16 @@ namespace Assignment2.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class foodLog
+    public partial class AspNetRole
     {
-        public int fLogID { get; set; }
-        public Nullable<int> protein { get; set; }
-        public Nullable<int> carbs { get; set; }
-        public Nullable<int> fat { get; set; }
-        public Nullable<int> calories { get; set; }
-        public Nullable<System.DateTime> foodDate { get; set; }
-        public string userID { get; set; }
+        public AspNetRole()
+        {
+            this.AspNetUsers = new HashSet<AspNetUser>();
+        }
     
-        public virtual AspNetUser AspNetUser { get; set; }
+        public string Id { get; set; }
+        public string Name { get; set; }
+    
+        public virtual ICollection<AspNetUser> AspNetUsers { get; set; }
     }
 }

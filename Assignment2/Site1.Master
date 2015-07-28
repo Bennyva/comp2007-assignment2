@@ -6,29 +6,46 @@
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"/>
+        <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="css/stylish-portfolio.css" rel="stylesheet">
+    <link href="main.css" rel="stylesheet" />
+    <!-- Custom Fonts -->
+    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
+
+
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
-<body>
+<body style="overflow-x: hidden;">
     <nav class="navbar navbar-inverse">
   <div class="container-fluid">
     <div class="navbar-header">
        
-      <a class="navbar-brand" href="#">JBs Premium Health Tracker</a>
+      <a class="navbar-brand" href="#">Health Tracker</a>
     </div>
     <div>
       <ul class="nav navbar-nav">
-        <li class="active"><a href="#">Home</a></li>
+ 
         <asp:PlaceHolder ID="plhPublic" runat="server">
                 <li><a href="/register.aspx">Register</a></li>
                 <li><a href="/login.aspx">Log In</a></li>
             </asp:PlaceHolder>
             <asp:placeholder ID="plhPrivate" runat="server">
                 <li><a href="/admin/dashboard.aspx">Dashboard</a></li>
-                <li><a href="/admin/viewWorkout.aspx">Workout Log</a></li>
-                <li><a href="/admin/viewFoodLog.aspx">Food Log</a></li>
+               
+                        <li><a href="/admin/newWorkout.aspx">New Workout</a></li>
+                        <li><a href="/admin/viewWorkout.aspx">View Workout</a></li>
+                    
+                
+                        <li><a href="/admin/newFoodLog.aspx">New Food Log</a></li>
+                        <li><a href="/admin/viewFoodLog.aspx">View Food Log</a></li>
+                    
                 <li><a href="/admin/userAccount.aspx">My Account</a></li>
                 <li><a href="/logout.aspx">Log Out</a></li>
             </asp:placeholder>
@@ -44,5 +61,21 @@
         </asp:ContentPlaceHolder>
     </div>
     </form>
+
+    <!-- Latest compiled and minified JavaScript -->
+
+    <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            jQuery("a").filter(function () {
+                return this.innerHTML.indexOf("Delete") == 0;
+            }).click(function () {
+                return confirm("Are you sure you want to delete this record?");
+            });
+        });
+
+   </script>
 </body>
 </html>

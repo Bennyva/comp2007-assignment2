@@ -105,16 +105,25 @@
     <Content Include="admin\newFoodLog.aspx" />
     <Content Include="admin\newWorkout.aspx" />
     <Content Include="admin\viewFoodLog.aspx" />
-    <Content Include="default.aspx" />
     <Content Include="error.aspx" />
-    <Content Include="error404.aspx" />
     <Content Include="admin\userAccount.aspx" />
     <Content Include="admin\viewWorkout.aspx" />
     <Content Include="App_Readme\Elmah.txt" />
     <Content Include="admin\dashboard.aspx" />
+    <Content Include="error404.aspx" />
+    <Content Include="images\asc.jpg" />
+    <Content Include="images\background.jpg" />
+    <Content Include="images\background2.jpg" />
+    <Content Include="images\background3.jpg" />
+    <Content Include="images\background4.jpg" />
+    <Content Include="images\desc.jpg" />
+    <Content Include="images\user.jpg" />
+    <Content Include="images\user.png" />
     <Content Include="login.aspx" />
     <Content Include="logout.aspx" />
+    <Content Include="main.css" />
     <Content Include="register.aspx" />
+    <Content Include="admin\setsControl.ascx" />
     <Content Include="Site1.Master" />
     <EntityDeploy Include="Models\WorkoutModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
@@ -174,26 +183,12 @@
     <Compile Include="admin\viewFoodLog.aspx.designer.cs">
       <DependentUpon>viewFoodLog.aspx</DependentUpon>
     </Compile>
-    <Compile Include="default.aspx.cs">
-      <DependentUpon>default.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="default.aspx.designer.cs">
-      <DependentUpon>default.aspx</DependentUpon>
-    </Compile>
     <Compile Include="error.aspx.cs">
       <DependentUpon>error.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="error.aspx.designer.cs">
       <DependentUpon>error.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="error404.aspx.cs">
-      <DependentUpon>error404.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="error404.aspx.designer.cs">
-      <DependentUpon>error404.aspx</DependentUpon>
     </Compile>
     <Compile Include="admin\userAccount.aspx.cs">
       <DependentUpon>userAccount.aspx</DependentUpon>
@@ -208,6 +203,13 @@
     </Compile>
     <Compile Include="admin\viewWorkout.aspx.designer.cs">
       <DependentUpon>viewWorkout.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="error404.aspx.cs">
+      <DependentUpon>error404.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="error404.aspx.designer.cs">
+      <DependentUpon>error404.aspx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -226,13 +228,25 @@
     <Compile Include="logout.aspx.designer.cs">
       <DependentUpon>logout.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Models\AspNetRole.cs">
+      <DependentUpon>WorkoutModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AspNetUser.cs">
+      <DependentUpon>WorkoutModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AspNetUserClaim.cs">
+      <DependentUpon>WorkoutModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AspNetUserLogin.cs">
+      <DependentUpon>WorkoutModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\C__MigrationHistory.cs">
+      <DependentUpon>WorkoutModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\foodLog.cs">
       <DependentUpon>WorkoutModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\setsLog.cs">
-      <DependentUpon>WorkoutModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\User.cs">
       <DependentUpon>WorkoutModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\workoutLog.cs">
@@ -260,6 +274,13 @@
     </Compile>
     <Compile Include="register.aspx.designer.cs">
       <DependentUpon>register.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\setsControl.ascx.cs">
+      <DependentUpon>setsControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\setsControl.ascx.designer.cs">
+      <DependentUpon>setsControl.ascx</DependentUpon>
     </Compile>
     <Compile Include="Site1.Master.cs">
       <DependentUpon>Site1.Master</DependentUpon>

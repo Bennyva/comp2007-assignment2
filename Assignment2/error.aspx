@@ -6,7 +6,7 @@
     <div class="col-md-6 col-md-offset-5">
     <h1>Oops, something went terribly wrong</h1>
     <h4>Our crack team of expert bug fixers are on the job, try your request again</h4>
-    <h5>Or click <a href="default.aspx">here</a> to head back to the home page</h5>
+    <h5>Or click <a href="dashboard.aspx">here</a> to head back to the home page</h5>
     <img src="images/animals_working_07.jpg" />
         </div>
         </div>

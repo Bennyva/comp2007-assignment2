@@ -13,6 +13,15 @@ namespace Assignment2 {
     public partial class newWorkout {
         
         /// <summary>
+        /// ddlMuscleGroup control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlMuscleGroup;
+        
+        /// <summary>
         /// txtExcercise control.
         /// </summary>
         /// <remarks>
@@ -31,40 +40,49 @@ namespace Assignment2 {
         protected global::System.Web.UI.WebControls.DropDownList ddlSets;
         
         /// <summary>
-        /// txtWeightSet1 control.
+        /// setsControl1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtWeightSet1;
+        protected global::Assignment2.setsControl setsControl1;
         
         /// <summary>
-        /// txtRepsSet1 control.
+        /// setsControl2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtRepsSet1;
+        protected global::Assignment2.setsControl setsControl2;
         
         /// <summary>
-        /// txtWeightSet2 control.
+        /// setsControl3 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtWeightSet2;
+        protected global::Assignment2.setsControl setsControl3;
         
         /// <summary>
-        /// txtRepsSet2 control.
+        /// setsControl4 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtRepsSet2;
+        protected global::Assignment2.setsControl setsControl4;
+        
+        /// <summary>
+        /// setsControl5 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Assignment2.setsControl setsControl5;
         
         /// <summary>
         /// txtDate control.
@@ -74,6 +92,24 @@ namespace Assignment2 {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtDate;
+        
+        /// <summary>
+        /// rvld1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RangeValidator rvld1;
+        
+        /// <summary>
+        /// RequiredFieldValidator5 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator5;
         
         /// <summary>
         /// btnSave control.

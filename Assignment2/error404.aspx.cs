@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace Assignment2.admin
+namespace Assignment2
 {
     public partial class error404 : System.Web.UI.Page
     {

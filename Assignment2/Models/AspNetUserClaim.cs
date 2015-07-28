@@ -12,15 +12,12 @@ namespace Assignment2.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class foodLog
+    public partial class AspNetUserClaim
     {
-        public int fLogID { get; set; }
-        public Nullable<int> protein { get; set; }
-        public Nullable<int> carbs { get; set; }
-        public Nullable<int> fat { get; set; }
-        public Nullable<int> calories { get; set; }
-        public Nullable<System.DateTime> foodDate { get; set; }
-        public string userID { get; set; }
+        public int Id { get; set; }
+        public string UserId { get; set; }
+        public string ClaimType { get; set; }
+        public string ClaimValue { get; set; }
     
         public virtual AspNetUser AspNetUser { get; set; }
     }
